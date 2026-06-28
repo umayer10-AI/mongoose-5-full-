@@ -39,12 +39,21 @@ const run = async() => {
         // const user = await User.where('age').gt(20).lt(35).where('name').equals('umayer')
         // .limit(1).populate('bestFriend')
 
+        // const user = await User.findOne({name: 'umayer'})
+        // const friend = await User.findById(user.bestFriend)
+        // user.bestFriend = friend
+
+        // const user = await User.findOne({name: 'umayer'})
+        // const user = await User.findByName('umayer')
+        // const user = await User.find().byName('umayer')
         const user = await User.findOne({name: 'umayer'})
-        const friend = await User.findById(user.bestFriend)
-        user.bestFriend = friend
 
         console.log(user)
-        console.log(user.length)
+        // user.sayHi()
+        console.log(user.nameEmail)
+        // console.log(user.length)
+        await user.save()
+        console.log(user)
     }
     catch(e){
         console.log(e.message)
