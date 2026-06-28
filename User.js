@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema(
             lowercase: true,
             // uppercase: true,
         },
+        bestFriend: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: "User"
+        },
         hobies: [String],
         address: addressSchema,
     },

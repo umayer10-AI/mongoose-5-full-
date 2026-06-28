@@ -27,7 +27,21 @@ const run = async() => {
         // const user = await User.find({name: 'umayer'})
         // const user = await User.exists({name: 'umayer'})
         // const user = await User.deleteOne({name: 'umayer'})
+        // const user = await User.where('age').gt(20).lt(35)
         // const user = await User.where('age').gt(20).lt(35).where('name').equals('ahmad')
+        // const user = await User.where('age').gt(20).lt(35).where('name').equals('umayer')
+        // .limit(5).select('name age')
+
+        // const user = await User.findOne({name: 'umayer'})
+        // user.bestFriend = '6a40d92ea5269dd53c6fa67d'
+        // await user.save()
+
+        // const user = await User.where('age').gt(20).lt(35).where('name').equals('umayer')
+        // .limit(1).populate('bestFriend')
+
+        const user = await User.findOne({name: 'umayer'})
+        const friend = await User.findById(user.bestFriend)
+        user.bestFriend = friend
 
         console.log(user)
         console.log(user.length)
